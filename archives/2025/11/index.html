@@ -339,6 +339,30 @@
   
 <script src="/js/my.js"></script>
 
+<script>
+document.addEventListener('click', function (e) {
+    let img = document.createElement("img");
+    img.src = "/images/son.png";      // ← ← ← 你的自定义图片路径
+    img.style.position = "absolute";
+    img.style.left = (e.pageX - 20) + "px";   
+    img.style.top = (e.pageY - 20) + "px";
+    img.style.width = "40px";   // 你可以改大小
+    img.style.pointerEvents = "none";
+    img.style.zIndex = 99999;
+    img.style.transition = "all 1s ease-out";
+    document.body.appendChild(img);
+
+    setTimeout(() => {
+        img.style.opacity = 0;
+        img.style.transform = "translateY(-40px) scale(0.5)";
+    }, 10);
+
+    setTimeout(() => {
+        img.remove();
+    }, 1000);
+});
+</script>
+
 <!-- 小黄人容器 -->
 <div id="minion"
      style="position: fixed;
@@ -384,8 +408,9 @@
   }, 16);
 </script>
 
+
 <!-- 小黄人欢迎语：进站自动说 Bello -->
-<audio id="minion-voice" src="/audio/bello1.mp3" preload="auto"></audio>
+<audio id="minion-voice" src="/audio/bello2.mp3" preload="auto"></audio>
 
 <script>
   // 只在用户首次进入页面时播放（避免频繁刷新吓人）
@@ -407,6 +432,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>
